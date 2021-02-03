@@ -24,10 +24,10 @@ export const Home = () => {
 
   return (
     <Page title="Home Page">
-      <div style={{ marginTop: "130px" }}>
+      <div style={{ marginTop: "115px" }}>
         <Card
           style={{ width: "60%" }}
-          bg="secondary"
+          bg="dark"
           text="white"
           className="ml-auto mr-auto border border-info rounded"
         >
