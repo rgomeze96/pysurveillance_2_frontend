@@ -1,13 +1,26 @@
 import React from "react";
-import { getFirstGrade } from "../actions/firstAnalysisFileActions";
 import { useDispatch } from "react-redux";
-import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { getFirstGrade } from "../actions/firstAnalysisActions";
+import { getSecondAnalysis } from "../actions/secondAnalysisActions";
+import { getThirdAnalysis } from "../actions/thirdAnalysisActions";
 
 export const UploadCSV = () => {
   const dispatch = useDispatch();
-  const sendFileForFirstAnalysis = (e) => {
+
+  const sendFileForAnalysis = (e) => {
     dispatch(
       getFirstGrade({
+        fileFromState: e.target.files[0],
+      })
+    );
+    dispatch(
+      getSecondAnalysis({
+        fileFromState: e.target.files[0],
+      })
+    );
+    dispatch(
+      getThirdAnalysis({
         fileFromState: e.target.files[0],
       })
     );
@@ -27,7 +40,7 @@ export const UploadCSV = () => {
           }}
           type="file"
           accept=".csv"
-          onChange={(e) => sendFileForFirstAnalysis(e)}
+          onChange={(e) => sendFileForAnalysis(e)}
           id="fileInput"
         />
       </Button>

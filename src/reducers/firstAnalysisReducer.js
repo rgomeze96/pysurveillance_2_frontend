@@ -27,7 +27,7 @@ const firstAnalysisReducer = (state = initialState, action) => {
           labels: payload.getTopAuthorsName,
           datasets: [
             {
-              label: "Publications",
+              label: "Publications per Author",
               data: payload.getTopAuthors,
               backgroundColor: "#003366",
               borderColor: "#EF8104",
@@ -40,7 +40,7 @@ const firstAnalysisReducer = (state = initialState, action) => {
           labels: payload.getYears,
           datasets: [
             {
-              label: "Publications",
+              label: "Total Publications per Year",
               data: payload.getPublicationsYear,
               backgroundColor: "#003366",
               borderColor: "#EF8104",
@@ -52,7 +52,7 @@ const firstAnalysisReducer = (state = initialState, action) => {
           labels: payload.getAffiliations,
           datasets: [
             {
-              label: "Publications",
+              label: "Publications per Affiliation",
               data: payload.getPublicationsAffiliation,
               backgroundColor: "#003366",
               borderColor: "#EF8104",

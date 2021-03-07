@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Alert, Button, Card, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { Bar, Line } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 
