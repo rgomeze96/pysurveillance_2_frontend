@@ -6,11 +6,24 @@ export const getFirstGrade = ({ fileFromState }) => async (dispatch) => {
       type: "AWAITING_FIRST_GRADE",
     });
     const formData = new FormData();
+
+    // Store data from CSV File that was uploaded in UploadCSV
     formData.append("file", fileFromState);
+
+    // Make call to FLASK RESTful API
     const response = await axios.post(
       `http://localhost:5000/api/first_grade/`,
       formData
     );
+
+    // Check if there is an error
+    if (response.status !== 200) {
+      dispatch({
+        type: "REJECTED_SECOND_ANALYSIS",
+      });
+    }
+
+    // Make variables in order to store the data for the graph
     const publications_per_year = response.data.pubs_per_year;
     const publications_per_author = response.data.pubs_per_author;
     const publications_per_affiliation = response.data.pubs_per_affiliation;
@@ -26,18 +39,23 @@ export const getFirstGrade = ({ fileFromState }) => async (dispatch) => {
     const ppGetPublicationsAffiliation = [];
     const ppGetAffiliations = [];
 
+    // Store all the years and number of publications for each year into arrays for graph
     Object.keys(publications_per_year).map(
       (element, index) => (
         (getYears[index] = element),
         (getPublicationsYear[index] = publications_per_year[element])
       )
     );
+
+    // Store all the authors names and the number of publications
     Object.keys(publications_per_author).map(
       (element, index) => (
         (ppAuthorsTop[index] = element),
         (ppAuthorsPubs[index] = publications_per_author[element])
       )
     );
+
+    // Store all the affiliations and the number of publications into an array
     Object.keys(publications_per_affiliation).map(
       (element, index) => (
         (ppGetAffiliations[index] = element),
@@ -45,6 +63,9 @@ export const getFirstGrade = ({ fileFromState }) => async (dispatch) => {
           publications_per_affiliation[element])
       )
     );
+
+    // Load the top (20) authors and affiliations based on publications
+    // Change this to an input to allow the user to change the number of "top"
     let i = 0;
     while (i < 20) {
       getTopAuthors[i] = Math.max(...ppAuthorsPubs);
@@ -60,6 +81,7 @@ export const getFirstGrade = ({ fileFromState }) => async (dispatch) => {
       i++;
     }
 
+    // Load the data into the firstAnalysisReducer.js
     dispatch({
       type: "SUCCESS_FIRST_ANALYSIS",
       loading: false,

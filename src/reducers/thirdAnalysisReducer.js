@@ -23,10 +23,12 @@ const thirdAnalysisReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         data: {
+          // load the names of the top authors based on the sources they publish in
           labels: payload.getNamesOfTopAuthPerSources,
           datasets: [
             {
               label: "Top Authors per Sources",
+              // load the data of the sources
               data: payload.getNumberOfSources,
               backgroundColor: "#003366",
               borderColor: "#EF8104",

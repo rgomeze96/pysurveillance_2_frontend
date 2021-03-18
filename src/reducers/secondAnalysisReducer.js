@@ -23,10 +23,12 @@ const secondAnalysisReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         data: {
+          // Load the names of the top authors based on cites
           labels: payload.getTopAuthNamesCites,
           datasets: [
             {
               label: "Top Authors per Citations",
+              // load the number of citations for each author
               data: payload.getTopAuthNumCites,
               backgroundColor: "#003366",
               borderColor: "#EF8104",
@@ -35,9 +37,11 @@ const secondAnalysisReducer = (state = initialState, action) => {
           ],
         },
         data1: {
+          // Load the names of the best sources based on citations
           labels: payload.getTopSrcNamesCites,
           datasets: [
             {
+              // load the number of citations per source
               label: "Top Sources per Citations",
               data: payload.getTopSrcPerCites,
               backgroundColor: "#003366",
@@ -47,10 +51,12 @@ const secondAnalysisReducer = (state = initialState, action) => {
           ],
         },
         data2: {
+          // load the names of the top papers based on citations
           labels: payload.getTopPapersNamesCites,
           datasets: [
             {
               label: "Top Papers per Citations",
+              // load number of citations for the top papers
               data: payload.getTopPapersPerCites,
               backgroundColor: "#003366",
               borderColor: "#EF8104",

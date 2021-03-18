@@ -9,6 +9,7 @@ export const FirstAnalysisGraphs = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
   const firstState = useSelector((firstState) => firstState.firstAnalysis);
 
+  /* Options to make the graph look better */
   const optionToSetAxes = {
     labels: {
       padding: 10,
@@ -28,12 +29,15 @@ export const FirstAnalysisGraphs = () => {
         <div>
           <Container>
             <Row>
+              {/* First graph of first analysis see reducer and actions for more details */}
               <Bar data={firstState.data} options={optionToSetAxes} />
             </Row>
             <Row>
+              {/* Second graph of first analysis see reducer and actions for more details */}
               <Line data={firstState.data1} options={optionToSetAxes} />
             </Row>
             <Row>
+              {/* Third graph of first analysis see reducer and actions for more details */}
               <Bar data={firstState.data2} options={optionToSetAxes} />
             </Row>
           </Container>

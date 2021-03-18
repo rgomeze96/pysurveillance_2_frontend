@@ -16,15 +16,18 @@ export const CSV_Input = () => {
   return (
     <Page title="CSV Input">
       <div style={{ marginTop: "115px" }}>
+        {/* check if file has been loaded */}
         {stateCSV["fileLoaded"] === false && (
           <div>
             <Card bg="dark" className="border border-info rounded text-white">
               <Card.Title>Select a CSV File to Analyze</Card.Title>
+              {/* Component that allows the user to upload a CSV file */}
               <UploadCSV />
               <br />
             </Card>
           </div>
         )}
+        {/* Make sure file has been loaded */}
         {stateCSV["fileLoaded"] && (
           <div>
             <Card bg="light" className="border border-success rounded">
@@ -39,6 +42,7 @@ export const CSV_Input = () => {
                   </strong>
                 </Alert>
               </Card.Title>
+              {/* Show First Analysis */}
               {!showFirstAnalysis && (
                 <Button
                   onClick={() => setShowFirstAnalysis(!showFirstAnalysis)}
@@ -48,7 +52,7 @@ export const CSV_Input = () => {
                   Show First Anaylsis
                 </Button>
               )}
-
+              {/* Hide First Analysis */}
               {showFirstAnalysis && (
                 <div>
                   <Button
@@ -61,6 +65,7 @@ export const CSV_Input = () => {
                   <FirstAnalysisGraphs />
                 </div>
               )}
+              {/* Show Second Analysis */}
               {!showSecondAnalysis && (
                 <Button
                   onClick={() => setShowSecondAnalysis(!showSecondAnalysis)}
@@ -70,6 +75,7 @@ export const CSV_Input = () => {
                   Show Second Anaylsis
                 </Button>
               )}
+              {/* Hide Second Analysis */}
               {showSecondAnalysis && (
                 <div>
                   <Button
@@ -82,6 +88,7 @@ export const CSV_Input = () => {
                   <SecondAnalysisGraphs />
                 </div>
               )}
+              {/* Show Third Analysis */}
               {!showThirdAnalysis && (
                 <Button
                   onClick={() => setShowThirdAnalysis(!showThirdAnalysis)}
@@ -91,6 +98,7 @@ export const CSV_Input = () => {
                   Show Third Anaylsis
                 </Button>
               )}
+              {/* Hide Third Analysis */}
               {showThirdAnalysis && (
                 <div>
                   <Button

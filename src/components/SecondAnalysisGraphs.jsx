@@ -9,6 +9,7 @@ export const SecondAnalysisGraphs = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
   const secondState = useSelector((secondState) => secondState.secondAnalysis);
 
+  /* Options to make the graph look better */
   const optionToSetAxes = {
     labels: {
       padding: 10,
@@ -28,12 +29,15 @@ export const SecondAnalysisGraphs = () => {
         <div>
           <Container>
             <Row>
+              {/* First graph of second analysis see reducer and actions for more details */}
               <Bar data={secondState.data} options={optionToSetAxes} />
             </Row>
             <Row>
+              {/* Second graph of second analysis see reducer and actions for more details */}
               <Line data={secondState.data1} options={optionToSetAxes} />
             </Row>
             <Row>
+              {/* Third graph of second analysis see reducer and actions for more details */}
               <Bar data={secondState.data2} options={optionToSetAxes} />
             </Row>
           </Container>

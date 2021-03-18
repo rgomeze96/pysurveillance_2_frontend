@@ -24,10 +24,13 @@ const firstAnalysisReducer = (state = initialState, action) => {
         loading: false,
         fileLoaded: true,
         data: {
+          // Author Names
           labels: payload.getTopAuthorsName,
           datasets: [
             {
+              // Label for Graph
               label: "Publications per Author",
+              // Number of publications data
               data: payload.getTopAuthors,
               backgroundColor: "#003366",
               borderColor: "#EF8104",
@@ -37,10 +40,12 @@ const firstAnalysisReducer = (state = initialState, action) => {
           ],
         },
         data1: {
+          // load all the years into graph
           labels: payload.getYears,
           datasets: [
             {
               label: "Total Publications per Year",
+              // load the number of publications of each year
               data: payload.getPublicationsYear,
               backgroundColor: "#003366",
               borderColor: "#EF8104",
@@ -49,10 +54,12 @@ const firstAnalysisReducer = (state = initialState, action) => {
           ],
         },
         data2: {
+          // Load all of the affiliations
           labels: payload.getAffiliations,
           datasets: [
             {
               label: "Publications per Affiliation",
+              // Load number of publications per affiliation
               data: payload.getPublicationsAffiliation,
               backgroundColor: "#003366",
               borderColor: "#EF8104",

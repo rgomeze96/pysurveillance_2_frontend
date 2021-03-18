@@ -9,6 +9,7 @@ export const ThirdAnalysisGraphs = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
   const thirdState = useSelector((thirdState) => thirdState.thirdAnalysis);
 
+  /* Options to make the graph look better */
   const optionToSetAxes = {
     labels: {
       padding: 10,
@@ -28,6 +29,7 @@ export const ThirdAnalysisGraphs = () => {
         <div>
           <Container>
             <Row>
+              {/* Third Analysis Graph */}
               <Bar data={thirdState.data} options={optionToSetAxes} />
             </Row>
           </Container>

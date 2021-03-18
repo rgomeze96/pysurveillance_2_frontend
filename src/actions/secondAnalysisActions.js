@@ -5,13 +5,18 @@ export const getSecondAnalysis = ({ fileFromState }) => async (dispatch) => {
     dispatch({
       type: "AWAITING_SECOND_ANALYSIS",
     });
+
+    // Store data from CSV File Input
     const formData = new FormData();
     formData.append("file", fileFromState);
+
+    // Make call to FLASK RESTful API
     const response = await axios.post(
       `http://localhost:5000/api/second_grade/`,
       formData
     );
 
+    // Check if there is an error
     if (response.status !== 200) {
       dispatch({
         type: "REJECTED_SECOND_ANALYSIS",
