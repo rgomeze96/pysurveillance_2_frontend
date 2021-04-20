@@ -30,7 +30,7 @@ const secondAnalysisReducer = (state = initialState, action) => {
               label: "Top Authors per Citations",
               // load the number of citations for each author
               data: payload.getTopAuthNumCites,
-              backgroundColor: "#003366",
+              backgroundColor: "#22578c",
               borderColor: "#EF8104",
               pointBorderColor: "#EF8104",
             },
@@ -44,9 +44,9 @@ const secondAnalysisReducer = (state = initialState, action) => {
               // load the number of citations per source
               label: "Top Sources per Citations",
               data: payload.getTopSrcPerCites,
-              backgroundColor: "#003366",
+              backgroundColor: "#22578c",
               borderColor: "#EF8104",
-              pointBorderColor: "#EF8104",
+              pointBorderColor: "#1b6ec2",
             },
           ],
         },
@@ -58,7 +58,7 @@ const secondAnalysisReducer = (state = initialState, action) => {
               label: "Top Papers per Citations",
               // load number of citations for the top papers
               data: payload.getTopPapersPerCites,
-              backgroundColor: "#003366",
+              backgroundColor: "#22578c",
               borderColor: "#EF8104",
               pointBorderColor: "#EF8104",
             },

@@ -30,7 +30,7 @@ const thirdAnalysisReducer = (state = initialState, action) => {
               label: "Top Authors per Sources",
               // load the data of the sources
               data: payload.getNumberOfSources,
-              backgroundColor: "#003366",
+              backgroundColor: "#43607d",
               borderColor: "#EF8104",
               pointBorderColor: "#EF8104",
             },

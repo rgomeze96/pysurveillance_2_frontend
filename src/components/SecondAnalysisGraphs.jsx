@@ -18,6 +18,7 @@ export const SecondAnalysisGraphs = () => {
       yAxes: [
         {
           stacked: true,
+          scaleLabel: { display : true, labelString: 'Number of Citations'}, 
         },
       ],
     },
