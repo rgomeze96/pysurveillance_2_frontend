@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { A } from "hookrouter";
+
 import {
   Button,
   Alert,
@@ -36,8 +36,9 @@ export const Navibar = () => {
         bg="dark"
         variant="dark"
       >
-        <Navbar.Brand style={{ fontSize: "25px" }} href="/">
-          Pysurveillance
+        <Navbar.Brand style={{ fontSize: "35px" }} href="/">
+          <span className="text-warning">Py</span>
+          <span className="text-primary">Surveillance</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

@@ -15,7 +15,7 @@ export const CSV_Input = () => {
 
   return (
     <Page title="CSV Input">
-      <div style={{ marginTop: "115px" }}>
+      <div style={{ marginTop: "125px" }}>
         {/* check if file has been loaded */}
         {stateCSV["fileLoaded"] === false && (
           <div>

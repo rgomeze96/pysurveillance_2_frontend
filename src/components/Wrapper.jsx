@@ -1,9 +1,15 @@
-import React from "react"
+import React from "react";
 
-export const Wrapper = ({children}) => {
-    return (
-        <div style={{ height: '90vh', margin: 'auto', textAlign: 'center' }}>
-            {children}
-        </div>
-    )
-}
+export const Wrapper = ({ children }) => {
+  return (
+    <div
+      style={{
+        height: "90vh",
+        margin: "auto",
+        textAlign: "center",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
