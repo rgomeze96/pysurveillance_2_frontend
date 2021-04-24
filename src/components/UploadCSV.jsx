@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { getFirstGrade } from "../actions/firstAnalysisActions";
 import { getSecondAnalysis } from "../actions/secondAnalysisActions";
 import { getThirdAnalysis } from "../actions/thirdAnalysisActions";
@@ -31,23 +31,23 @@ export const UploadCSV = () => {
 
   return (
     <div>
-      <Button style={{ width: "170px" }} variant="info">
-        <label style={{ color: "white" }} htmlFor="fileInput" className="btn">
-          Select CSV File
+      <Button style={{ width: "170px" }} variant="dark">
+        <label style={{ cursor: "pointer" }} htmlFor="fileInput">
+          Browse for CSV File
         </label>
-        {/* Input to Load CSV File */}
-        <input
-          style={{
-            opacity: "0",
-            height: "0",
-            width: "0",
-          }}
-          type="file"
-          accept=".csv"
-          onChange={(e) => sendFileForAnalysis(e)}
-          id="fileInput"
-        />
       </Button>
+      {/* Input to Load CSV File */}
+      <input
+        style={{
+          opacity: "0",
+          height: "0",
+          width: "0",
+        }}
+        type="file"
+        accept=".csv"
+        onChange={(e) => sendFileForAnalysis(e)}
+        id="fileInput"
+      />
     </div>
   );
 };

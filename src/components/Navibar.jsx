@@ -1,62 +1,32 @@
 import React, { useState, useEffect, Fragment } from "react";
 
-import {
-  Button,
-  Alert,
-  Container,
-  Row,
-  Col,
-  Navbar,
-  NavDropdown,
-  Nav,
-  NavItem,
-} from "react-bootstrap";
+import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/Navibar.css";
-import { useSelector, useDispatch } from "react-redux";
 
 export const Navibar = () => {
-  const [ready, setReady] = useState(false);
-  const [userLoaded, setUserLoaded] = useState(false);
-
-  const getAuth = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setUserLoaded(true);
-    }
-  }, []);
-
   return (
     <div>
       <Navbar
-        fixed="top"
-        className="center"
+        static="top"
+        className="left"
         expand="lg"
         bg="dark"
         variant="dark"
       >
         <Navbar.Brand style={{ fontSize: "35px" }} href="/">
-          <span className="text-warning">Py</span>
-          <span className="text-primary">Surveillance</span>
+          <img
+            src="/images/pysurveillance_logo.jpg"
+            width="150px"
+            height="70px"
+            className="rounded bg-dark"
+            alt="React Bootstrap logo"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto mr-auto">
-            {userLoaded === true && (
-              <Fragment>
-                <Nav.Link href="/customeraccount">Mi Cuenta</Nav.Link>
-                <Nav.Link href="/logoutcustomer">Cerrar Sesión</Nav.Link>
-              </Fragment>
-            )}
-            {userLoaded === false && (
-              <Fragment>
-                <Nav.Link href="/registercustomer">Registrar</Nav.Link>
-                <Nav.Link href="/logincustomer">Iniciar Sesión</Nav.Link>
-              </Fragment>
-            )}
-
-            <NavDropdown title="Navegar" id="basic-nav-dropdown">
+          <Nav className="ml-auto mr-5">
+            <NavDropdown title="Navigate" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action

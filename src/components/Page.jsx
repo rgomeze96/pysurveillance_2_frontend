@@ -1,5 +1,9 @@
 import React from "react";
 
 export const Page = ({ title, children }) => {
-  return <div style={{ textAlign: "center", margin: "20px" }}>{children}</div>;
+  return (
+    <div className="bg-light" style={{ textAlign: "center", margin: "20px" }}>
+      {children}
+    </div>
+  );
 };

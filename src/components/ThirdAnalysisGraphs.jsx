@@ -14,11 +14,21 @@ export const ThirdAnalysisGraphs = () => {
     labels: {
       padding: 10,
     },
+    title: {
+      display: true,
+      text: "Top Authors based on Number of Sources in which They Published",
+    },
     scales: {
       yAxes: [
         {
           stacked: true,
-          scaleLabel: { display : true, labelString: 'Number of Sources'}, 
+          scaleLabel: { display: true, labelString: "Number of Sources" },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: true,
+          scaleLabel: { display: true, labelString: "Authors" },
         },
       ],
     },
@@ -34,6 +44,7 @@ export const ThirdAnalysisGraphs = () => {
               <Bar data={thirdState.data} options={optionToSetAxes} />
             </Row>
           </Container>
+          <hr className="border border-dark" />
         </div>
       </div>
     </div>
