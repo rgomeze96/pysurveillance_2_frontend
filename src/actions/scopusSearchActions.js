@@ -1,63 +1,29 @@
 import axios from "axios";
 
-export const getScopusJson = ({}) => async (dispatch) => {
+export const getScopusJson = ({ scopusConfig }) => async (dispatch) => {
   try {
     dispatch({
-      type: "AWAITING_SCOPUS",
+      type: "AWAITING_SCOPUS_SEARCH",
     });
 
     // Save data from CSV File Input
-    const formData = new FormData();
-    formData.append("file", fileFromState);
-
-    // Make call to FLASK RESTful API
-    const response = await axios.post(`/api/third_grade/`, formData);
-
-    // Check if there is an error
-    if (response.status !== 200) {
-      dispatch({
-        type: "REJECTED_SECOND_ANALYSIS",
-      });
-    }
-
-    // load the data from the api call
-    const thirdAnalysisFromAPI = response.data["num_sources_per_author"];
-    const allAuthorsPerSources = [];
-    const numberOfSourcesPerAuthor = [];
-    thirdAnalysisFromAPI.forEach((element) => {
-      Object.keys(element).map((key) => {
-        if (element[key] > 0) {
-          allAuthorsPerSources.push(key);
-          numberOfSourcesPerAuthor.push(element[key]);
-        }
-      });
-    });
-
-    // Load the top authors based on number of sources
-    const getNamesOfTopAuthPerSources = [];
-    const getNumberOfSources = [];
-    let i = 0;
-    // change to dynamic field input
-    while (i < 20) {
-      getNumberOfSources[i] = Math.max(...numberOfSourcesPerAuthor);
-      let indexSources = numberOfSourcesPerAuthor.indexOf(
-        Math.max(...numberOfSourcesPerAuthor)
-      );
-      getNamesOfTopAuthPerSources[i] = allAuthorsPerSources[indexSources];
-      numberOfSourcesPerAuthor.splice(indexSources, 1);
-      i++;
-    }
-    dispatch({
-      type: "SUCCESS_THIRD_ANALYSIS",
-      loading: false,
-      payload: {
-        getNamesOfTopAuthPerSources,
-        getNumberOfSources,
+    let config = {
+      headers: {
+        Accept: "application/json",
+        "X-ELS-APIKey": scopusConfig["apiKeyUser"],
       },
+      params: { query: scopusConfig["query"], view: "COMPLETE", start: 0 },
+    };
+
+    console.log(config);
+
+    dispatch({
+      type: "SUCCESS_SCOPUS_SEARCH",
+      loading: false,
     });
   } catch (err) {
     dispatch({
-      type: "REJECTED_",
+      type: "REJECTED_SCOPUS_SEARCH",
     });
   }
 };

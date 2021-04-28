@@ -7,6 +7,7 @@ import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 import { CSV_Input } from "./pages/CSV_Input";
+import { SearchScopus } from "./pages/SearchScopus";
 import { Footer } from "./components/Footer";
 
 const routes = {
@@ -14,6 +15,7 @@ const routes = {
   "/about*": () => <About />,
   "/contact": () => <Contact />,
   "/CSV_Input": () => <CSV_Input />,
+  "/SearchScopus": () => <SearchScopus />,
   "/contact/:name": ({ name }) => <Contact name={name} />,
 };
 

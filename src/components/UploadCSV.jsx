@@ -31,7 +31,7 @@ export const UploadCSV = () => {
 
   return (
     <div>
-      <Button style={{ width: "170px" }} variant="dark">
+      <Button style={{ width: "170px", height: "40px" }} variant="dark">
         <label style={{ cursor: "pointer" }} htmlFor="fileInput">
           Browse for CSV File
         </label>

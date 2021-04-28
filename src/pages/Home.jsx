@@ -114,8 +114,7 @@ export const Home = () => {
                 <Button
                   className="mr-auto"
                   variant="outline-dark"
-                  href="https://scopus.com"
-                  target="blank"
+                  href="/SearchScopus"
                 >
                   Query Scopus™ Database
                 </Button>
@@ -124,7 +123,7 @@ export const Home = () => {
             </div>
             <div
               style={{ height: "100%" }}
-              className="card bg-light mr-2  border border-light"
+              className=" bg-light mr-2  border border-light"
             >
               <div className="card-body rounded text-dark">
                 <h5 className="card-title">Perform Analysis on CSV File</h5>
@@ -143,7 +142,6 @@ export const Home = () => {
               </div>
             </div>
           </div>
-          <hr className="border border-dark" />
         </div>
       </Page>
     </div>
