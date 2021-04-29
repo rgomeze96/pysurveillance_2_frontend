@@ -15,7 +15,12 @@ export const getScopusJson = ({ scopusConfig }) => async (dispatch) => {
       params: { query: scopusConfig["query"], view: "COMPLETE", start: 0 },
     };
 
-    console.log(config);
+    const response = await axios.get(
+      `https://api.elsevier.com/content/search/scopus`,
+      config
+    );
+
+    console.log(response);
 
     dispatch({
       type: "SUCCESS_SCOPUS_SEARCH",
