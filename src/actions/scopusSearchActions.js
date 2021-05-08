@@ -6,20 +6,10 @@ export const getScopusJson = ({ scopusConfig }) => async (dispatch) => {
       type: "AWAITING_SCOPUS_SEARCH",
     });
 
-    // Save data from CSV File Input
-    let config = {
-      headers: {
-        Accept: "application/json",
-        "X-ELS-APIKey": scopusConfig["apiKeyUser"],
-      },
-      params: { query: scopusConfig["query"], view: "COMPLETE", start: 0 },
-    };
-
-    const response = await axios.get(
-      `https://api.elsevier.com/content/search/scopus`,
-      config
+    const response = await axios.post(
+      `http://localhost:5000/api/get_scopus/`,
+      scopusConfig
     );
-
     console.log(response);
 
     dispatch({

@@ -10,6 +10,7 @@ export const Home = () => {
           <h3>Welcome to Pysurveillance</h3>
           <h5>Your Research Partner</h5>
           <hr className="border border-dark" />
+
           <div className="card-group mx-auto rounded" style={{ width: "85%" }}>
             <div className="card bg-light mr-2 rounded border border-light">
               <img
@@ -111,11 +112,7 @@ export const Home = () => {
                   Scopus™ Database yourself
                 </p>
                 <hr className="border border-dark" />
-                <Button
-                  className="mr-auto"
-                  variant="outline-dark"
-                  href="/SearchScopus"
-                >
+                <Button className="mr-auto" variant="dark" href="/SearchScopus">
                   Query Scopus™ Database
                 </Button>
                 <hr className="border border-dark" />
@@ -135,13 +132,14 @@ export const Home = () => {
                   must be modified for PySurveillance.
                 </p>
                 <hr className="border border-dark" />
-                <Button variant="outline-dark" href="/CSV_Input">
-                  Import CSV File
+                <Button variant="dark" href="/CSV_Input">
+                  Import Scopus™ CSV File
                 </Button>
                 <hr className="border border-dark" />
               </div>
             </div>
           </div>
+          <hr className="border border-dark" />
         </div>
       </Page>
     </div>
