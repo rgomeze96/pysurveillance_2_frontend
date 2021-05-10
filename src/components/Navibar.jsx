@@ -16,9 +16,9 @@ export const Navibar = () => {
       >
         <Navbar.Brand style={{ fontSize: "35px" }} href="/">
           <img
-            src="/images/pysurveillance_logo.jpg"
-            width="80px"
-            height="80px"
+            src="/images/py_surv_just_snake_100x100.png"
+            width="75px"
+            height="75px"
             className="rounded bg-dark"
             alt="React Bootstrap logo"
           />
