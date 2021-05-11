@@ -32,7 +32,7 @@ const firstAnalysisReducer = (state = initialState, action) => {
               label: "Publications per Author",
               // Number of publications data
               data: payload.getTopAuthors,
-              backgroundColor: "#003366",
+              backgroundColor: "#4B8BBE",
               borderColor: "#EF8104",
               pointBorderColor: "#EF8104",
               background: "white",
@@ -47,7 +47,7 @@ const firstAnalysisReducer = (state = initialState, action) => {
               label: "Total Publications per Year",
               // load the number of publications of each year
               data: payload.getPublicationsYear,
-              backgroundColor: "#003366",
+              backgroundColor: "#4B8BBE",
               borderColor: "#EF8104",
               pointBorderColor: "#EF8104",
             },
@@ -61,7 +61,7 @@ const firstAnalysisReducer = (state = initialState, action) => {
               label: "Publications per Affiliation",
               // Load number of publications per affiliation
               data: payload.getPublicationsAffiliation,
-              backgroundColor: "#003366",
+              backgroundColor: "#4B8BBE",
               borderColor: "#EF8104",
               pointBorderColor: "#EF8104",
             },
