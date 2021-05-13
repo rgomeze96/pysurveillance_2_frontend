@@ -68,7 +68,7 @@ export const ScopusInput = () => {
               id="query"
               name="query"
               onChange={handleFormChange}
-              placeholder='"inverse reinforcement learning"  AND  ( "system"  OR  "e-learning"  OR  "stochastic"  OR  "smart grids"  OR  "control"  OR  "system controller"  OR  "control tuning"  OR  "optimization")'
+              defaultValue='"inverse reinforcement learning"  AND  ( "system"  OR  "e-learning"  OR  "stochastic"  OR  "smart grids"  OR  "control"  OR  "system controller"  OR  "control tuning"  OR  "optimization")'
               rows="3"
             ></textarea>
             <hr className="border border-dark" />
