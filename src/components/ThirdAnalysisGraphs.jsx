@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Alert, Button, Card, Container, Row } from "react-bootstrap";
 import { Bar, Line } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
+import { saveAs } from "file-saver";
 
 export const ThirdAnalysisGraphs = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,31 @@ export const ThirdAnalysisGraphs = () => {
     },
   };
 
+  const saveFirstGraph = (topAuthorsBasedOnSourcesGet) => {
+    topAuthorsBasedOnSourcesGet.toBlob(function (blob) {
+      saveAs(blob, "topAuthorsBasedOnSources.png");
+    });
+  };
+
+  const saveGraph = () => {
+    function fillCanvasBackgroundWithColor(canvas, color) {
+      const getCanvas = canvas.getContext("2d");
+      getCanvas.save();
+      getCanvas.globalCompositeOperation = "destination-over";
+      getCanvas.fillStyle = color;
+      getCanvas.fillRect(0, 0, canvas.width, canvas.height);
+      getCanvas.restore();
+    }
+
+    const topAuthorsBasedOnSourcesGet = document.getElementById(
+      "topAuthorsBasedOnSources"
+    );
+
+    fillCanvasBackgroundWithColor(topAuthorsBasedOnSourcesGet, "white");
+
+    saveFirstGraph(topAuthorsBasedOnSourcesGet);
+  };
+
   return (
     <div>
       <div>
@@ -41,9 +67,17 @@ export const ThirdAnalysisGraphs = () => {
           <Container>
             <Row>
               {/* Third Analysis Graph */}
-              <Bar data={thirdState.data} options={optionToSetAxes} />
+              <Bar
+                id="topAuthorsBasedOnSources"
+                data={thirdState.data}
+                options={optionToSetAxes}
+              />
             </Row>
           </Container>
+          <hr className="border border-dark" />
+          <Button onClick={() => saveGraph()} type="submit" variant="dark">
+            Download Third Analysis Graphs
+          </Button>
           <hr className="border border-dark" />
         </div>
       </div>
