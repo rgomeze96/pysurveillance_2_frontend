@@ -88,6 +88,7 @@ export const ScopusInput = () => {
             >
               Submit Search Query
             </button>
+            <hr className="border border-dark" />
           </div>
         </form>
       </fieldset>

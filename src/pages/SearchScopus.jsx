@@ -25,7 +25,6 @@ export const SearchScopus = () => {
               <p>
                 You can read the Search Tips by Scopus™,{" "}
                 <a
-                  style={{ color: "black" }}
                   target="blank"
                   href="https://dev.elsevier.com/sc_search_tips.html"
                 >
@@ -34,6 +33,17 @@ export const SearchScopus = () => {
               </p>
               <hr className="border border-dark" />
               <ScopusInput />
+              <p>
+                Below you can go directly to the developer portal and get your
+                API key, copy and paste into the form above.
+              </p>
+              <Button
+                variant="outline-dark"
+                target="_blank"
+                href="https://dev.elsevier.com/apikey/manage"
+              >
+                Check My API Key
+              </Button>
               <hr className="border border-dark" />
             </div>
           )}
