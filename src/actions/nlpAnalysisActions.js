@@ -1,29 +1,35 @@
 import axios from "axios";
 
-export const getFirstGrade = ({ fileFromState }) => async (dispatch) => {
+export const nlpAnalysis = ({ fileFromState, searchParameters }) => async (dispatch) => {
   try {
     dispatch({
-      type: "AWAITING_FIRST_GRADE",
+      type: "AWAITING_NLP",
     });
     const formData = new FormData();
 
     // Store data from CSV File that was uploaded in UploadCSV
     formData.append("file", fileFromState);
+    formData.append("searchParams", searchParameters);
 
     // Make call to FLASK RESTful API
     const response = await axios.post(
-      `http://localhost:5000/api/first_grade/`,
-      formData
+      `http://localhost:5000/api/nlp/`,
+      formData,
     );
 
     // Check if there is an error
     if (response.status !== 200) {
       dispatch({
-        type: "REJECTED_FIRST_ANALYSIS",
+        type: "REJECTED_NLP",
       });
     }
-
-    // Make variables in order to store the data for the graph
+    if(response.status == 200) {
+      dispatch({
+        type: "SUCCESS_NLP"
+      });
+      console.log(response);
+    }
+    /*// Make variables in order to store the data for the graph
     const publications_per_year = response.data.pubs_per_year;
     const publications_per_author = response.data.pubs_per_author;
     const publications_per_affiliation = response.data.pubs_per_affiliation;
@@ -94,10 +100,11 @@ export const getFirstGrade = ({ fileFromState }) => async (dispatch) => {
         getPublicationsAffiliation,
       },
     });
+    */
   } catch (e) {
     dispatch({
-      type: "REJECTED_FIRST_GRADE",
+      type: "REJECTED_NLP",
     });
-    console.log("Error in getFirstGrade: ", e);
+    console.log("Error in nlpAnalysis: ", e);
   }
 };

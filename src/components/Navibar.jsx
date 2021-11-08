@@ -23,7 +23,7 @@ export const Navibar = () => {
             alt="React Bootstrap logo"
           />
         </Navbar.Brand>
-        <Nav className="mr-auto">
+        <Nav className="ml-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/contact">Contact Us</Nav.Link>
         </Nav>

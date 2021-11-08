@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Button, Form } from "react-bootstrap";
 import { getFirstGrade } from "../actions/firstAnalysisActions";
 import { getSecondAnalysis } from "../actions/secondAnalysisActions";
 import { getThirdAnalysis } from "../actions/thirdAnalysisActions";
@@ -10,32 +9,10 @@ export const ScopusInput = () => {
   const dispatch = useDispatch();
 
   //states
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [scopusInfo, setScopusInfo] = useState({
     query: "",
     apiKeyUser: "",
   });
-
-  const sendFileForAnalysis = (e) => {
-    // Get the data for the First Analysis using firstAnalysisActions.js
-    dispatch(
-      getFirstGrade({
-        fileFromState: e.target.files[0],
-      })
-    );
-    // Get the data for the Second Analysis using secondAnalysisActions.js
-    dispatch(
-      getSecondAnalysis({
-        fileFromState: e.target.files[0],
-      })
-    );
-    // Get the data for the Third Analysis using thirdAnalysisActions.js
-    dispatch(
-      getThirdAnalysis({
-        fileFromState: e.target.files[0],
-      })
-    );
-  };
 
   const handleFormChange = (e) => {
     let name = e.target.name;
@@ -57,7 +34,7 @@ export const ScopusInput = () => {
     <div className="container">
       {/* Input to Load CSV File */}
       <fieldset>
-        <form method="POST" onSubmit={handleFormSubmit}>
+        <form method="POST" onSubmit={(e) => handleFormSubmit(e)}>
           <div
             style={{ marginLeft: "auto", marginRight: "auto" }}
             className="form-group col-6"

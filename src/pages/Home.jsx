@@ -13,7 +13,7 @@ export const Home = () => {
           <Jumbotron className="bg-light">
             <Container>
               <Row>
-                <Col xs={4}>
+                <Col lg={4} xs={12}>
                   <img
                     src={`/images/pysurv_logo_bright_1.png`}
                     alt="pySurveillance_logo"
@@ -21,7 +21,20 @@ export const Home = () => {
                     height="300"
                   />
                 </Col>
-                <Col xs={8}>
+                <Col>
+                  <hr className="border border-dark" />
+                  <h4>Perform a Pysurveillance Analysis</h4>
+                  <Button
+                    className="mr-auto"
+                    variant="dark"
+                    href="/SearchScopus"
+                  >
+                    Query Scopus™ Database
+                  </Button>
+                  <Button className="ml-2" variant="dark" href="/CSV_Input">
+                    Import Scopus™ CSV File
+                  </Button>
+                  <hr className="border border-dark" />
                   <h4>What is PySurveillance?</h4>
                   <p className="lead">
                     Tired of spending countless hours going through pages and
@@ -36,24 +49,13 @@ export const Home = () => {
                     material.
                   </p>
                   <hr className="border border-dark" />
-                  <h4>Perform a Pysurveillance Analysis</h4>
-                  <Button
-                    className="mr-auto"
-                    variant="dark"
-                    href="/SearchScopus"
-                  >
-                    Query Scopus™ Database
-                  </Button>
-                  <Button className="ml-2" variant="dark" href="/CSV_Input">
-                    Import Scopus™ CSV File
-                  </Button>
                 </Col>
               </Row>
             </Container>
             <hr className="border border-dark" />
             <Container>
               <Row>
-                <Col xs={4}>
+                <Col lg={4} xs={12}>
                   <img
                     className="rounded"
                     src={`/images/graph.jpg`}
@@ -62,7 +64,7 @@ export const Home = () => {
                     height="300"
                   />
                 </Col>
-                <Col xs={8}>
+                <Col>
                   <h4>Our Analytical Process</h4>
                   <p className="lead">
                     <i>PySurveillance</i> provides an in depth analysis of
@@ -87,7 +89,7 @@ export const Home = () => {
             <hr className="border border-dark" />
             <Container>
               <Row>
-                <Col xs={4}>
+                <Col lg={4} xs={12}>
                   <img
                     className="card-img-top rounded"
                     src={`/images/scopus.jpg`}
@@ -96,7 +98,7 @@ export const Home = () => {
                     height="250"
                   />
                 </Col>
-                <Col xs={8}>
+                <Col>
                   <h4>Using the Scopus™ Database</h4>
                   <p className="lead">
                     Below you can go directly to the Scopus™ website in order to
