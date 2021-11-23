@@ -1,9 +1,10 @@
 const initialState = {
   loading: false,
-  fileLoaded: false,
+  analysisCompleted: false,
+  fileLoaded: false
 };
 
-const firstAnalysisReducer = (state = initialState, action) => {
+const nlpProcessReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case "AWAITING_NLP":
@@ -18,16 +19,24 @@ const firstAnalysisReducer = (state = initialState, action) => {
         loading: false,
         fileLoaded: false,
       };
-    case "SUCCESS_NLP":
+    case "NLP_FILE_UPLOADED":
       return {
         ...state,
         loading: false,
         fileLoaded: true,
-
+      };
+    case "SUCCESS_NLP":
+      return {
+        ...state,
+        loading: false,
+        analysisCompleted: true,
+        fileLoaded: true,
+        results_before: payload.results_before_nlp,
+        results_after: payload.results_after_nlp
       };
     default:
       return state;
   }
 };
 
-export default firstAnalysisReducer;
+export default nlpProcessReducer;

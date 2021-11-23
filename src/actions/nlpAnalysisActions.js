@@ -1,35 +1,52 @@
 import axios from "axios";
 
-export const nlpAnalysis = ({ fileFromState, searchParameters }) => async (dispatch) => {
-  try {
-    dispatch({
-      type: "AWAITING_NLP",
-    });
-    const formData = new FormData();
-
-    // Store data from CSV File that was uploaded in UploadCSV
-    formData.append("file", fileFromState);
-    formData.append("searchParams", searchParameters);
-
-    // Make call to FLASK RESTful API
-    const response = await axios.post(
-      `http://localhost:5000/api/nlp/`,
-      formData,
-    );
-
-    // Check if there is an error
-    if (response.status !== 200) {
+export const nlpAnalysis =
+  ({ fileFromState, searchParameters }) =>
+  async (dispatch) => {
+    try {
       dispatch({
-        type: "REJECTED_NLP",
+        type: "AWAITING_NLP",
       });
-    }
-    if(response.status == 200) {
-      dispatch({
-        type: "SUCCESS_NLP"
-      });
-      console.log(response);
-    }
-    /*// Make variables in order to store the data for the graph
+      const formData = new FormData();
+      // Store data from CSV File that was uploaded in UploadCSV
+      if (fileFromState) {
+        formData.append("file", fileFromState);
+        formData.append("searchParams", searchParameters);
+        // Make call to FLASK RESTful API
+        const response = await axios.post(
+          `http://localhost:5000/api/nlp/`,
+          formData
+        );
+
+        // Check if there is an error
+        if (response.status !== 200) {
+          dispatch({
+            type: "REJECTED_NLP",
+          });
+        } else {
+          const results_before_nlp = response.data.total_results;
+          const results_after_nlp = response.data.results_after_nlp;
+          console.log(response.data);
+          console.log("results_before_nlp: ", results_before_nlp);
+          console.log("results_after_nlp: ", results_after_nlp);
+          dispatch({
+            type: "SUCCESS_NLP",
+            payload: {
+              results_before_nlp,
+              results_after_nlp,
+            },
+          });
+        }
+      } else {
+        dispatch({
+          type: "REJECTED_NLP",
+        });
+      }
+
+
+
+
+      /*// Make variables in order to store the data for the graph
     const publications_per_year = response.data.pubs_per_year;
     const publications_per_author = response.data.pubs_per_author;
     const publications_per_affiliation = response.data.pubs_per_affiliation;
@@ -101,10 +118,10 @@ export const nlpAnalysis = ({ fileFromState, searchParameters }) => async (dispa
       },
     });
     */
-  } catch (e) {
-    dispatch({
-      type: "REJECTED_NLP",
-    });
-    console.log("Error in nlpAnalysis: ", e);
-  }
-};
+    } catch (e) {
+      dispatch({
+        type: "REJECTED_NLP",
+      });
+      console.log("Error in nlpAnalysis: ", e);
+    }
+  };

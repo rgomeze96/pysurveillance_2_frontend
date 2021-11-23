@@ -44,6 +44,15 @@ export const SearchScopus = () => {
               >
                 Check My API Key
               </Button>
+              <div className="small">
+                The API key is required by Scopus™ in order to access their
+                database and retrieve the research material. Without a valid API
+                Key you cannot utilize this part of PySurveillance. If you have
+                access to the Scopus™ website, you can perform your search query
+                there and download a CSV file with all of the research material.
+                You can then upload the CSV file and perform a PySurveillance
+                analysis.
+              </div>
               <hr className="border border-dark" />
             </div>
           )}

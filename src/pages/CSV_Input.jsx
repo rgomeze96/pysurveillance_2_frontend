@@ -11,14 +11,20 @@ export const CSV_Input = () => {
   const [showFirstAnalysis, setShowFirstAnalysis] = useState(true);
   const [showSecondAnalysis, setShowSecondAnalysis] = useState(false);
   const [showThirdAnalysis, setShowThirdAnalysis] = useState(false);
-  const stateCSV = useSelector((stateCSV) => stateCSV.firstAnalysis);
+  const stateCSV = useSelector((stateCSV) => stateCSV.nlpProcess);
+  useEffect(() => {
+    console.log(stateCSV);
+  })
 
   return (
     <div className="bg-light">
       <Page title="CSV Input">
         <div style={{ textAlign: "center" }}>
           {/* check if file has been loaded */}
-          {stateCSV["fileLoaded"] === false && (
+          {stateCSV["loading"] === true && (
+            <h4>Loading...</h4>
+          )}
+          {stateCSV["analysisCompleted"] === false && (
             <div>
               <h2>Select a CSV File to Analyze</h2>
               <hr className="border border-dark" />
@@ -30,136 +36,7 @@ export const CSV_Input = () => {
               <hr className="border border-dark" />
             </div>
           )}
-          {/* Make sure file has been loaded */}
-          {stateCSV["fileLoaded"] && (
-            <div className="Container">
-              <h3 className="text-success">CSV File Uploaded Successfully</h3>
-              <hr className="border border-dark"></hr>
-              <div className="">
-                <div className="">
-                  <h4>Show and Hide Analysis</h4>
-                </div>
-                <div className="">
-                  {/* Hide first analysis button */}
-                  {showFirstAnalysis && (
-                    <Button
-                      style={{ width: "200px" }}
-                      onClick={() => setShowFirstAnalysis(!showFirstAnalysis)}
-                      className="mr-2 "
-                      variant="outline-danger"
-                    >
-                      Hide First Anaylsis
-                    </Button>
-                  )}
-                  {/* End hide first anaylsis button */}
-                  {/* Show first analysis button*/}
-                  {!showFirstAnalysis && (
-                    <Button
-                      onClick={() => setShowFirstAnalysis(!showFirstAnalysis)}
-                      className=" mr-2 ml-auto"
-                      variant="outline-dark"
-                    >
-                      Show First Anaylsis
-                    </Button>
-                  )}
-                  {/* End show first anaylsis button */}
-                  {/* Hide second analysis button */}
-                  {showSecondAnalysis && (
-                    <Button
-                      onClick={() => setShowSecondAnalysis(!showSecondAnalysis)}
-                      className="mr-2"
-                      variant="outline-danger"
-                    >
-                      Hide Second Anaylsis
-                    </Button>
-                  )}
-                  {/* End hide second anaylsis button */}
-                  {/* Show second anaylsis button */}
-                  {!showSecondAnalysis && (
-                    <Button
-                      onClick={() => setShowSecondAnalysis(!showSecondAnalysis)}
-                      className="ml-auto mr-2"
-                      variant="outline-dark"
-                    >
-                      Show Second Anaylsis
-                    </Button>
-                  )}
-                  {/* End show second anaylsis button */}
-                  {/* Hide Third Analysis Button */}
-                  {showThirdAnalysis && (
-                    <Button
-                      onClick={() => setShowThirdAnalysis(!showThirdAnalysis)}
-                      className=""
-                      variant="outline-danger"
-                    >
-                      Hide Third Anaylsis
-                    </Button>
-                  )}
-                  {/* End Hide Third Analysis Button */}
-                  {/* Show Third Analysis Button */}
-                  {!showThirdAnalysis && (
-                    <Button
-                      onClick={() => setShowThirdAnalysis(!showThirdAnalysis)}
-                      className="ml-auto mr-auto"
-                      variant="outline-dark"
-                    >
-                      Show Third Anaylsis
-                    </Button>
-                  )}
-                  {/* End Show Third Analysis Button */}
-                </div>
-              </div>
-              <hr className="border border-dark"></hr>
-              {/* Show First Analysis Graphs */}
-              {showFirstAnalysis && (
-                <div>
-                  <Card bg="light" className="rounded border border-light">
-                    <Card.Title>
-                      <h4>First Grade Analysis</h4>
-                      <hr className="border border-dark" />
-                    </Card.Title>
-                    <Card.Body>
-                      <FirstAnalysisGraphs />
-                    </Card.Body>
-                  </Card>
-                </div>
-              )}
-              {/*End First Analysis graphs */}
-              {/* Show Second Analysis graphs */}
-              {showSecondAnalysis && (
-                <div>
-                  <Card bg="light" className="rounded border border-light mt-3">
-                    <Card.Title>
-                      <h4>Second Grade Analysis</h4>
-                      <hr className="border border-dark" />
-                    </Card.Title>
-                    <Card.Body>
-                      <SecondAnalysisGraphs />
-                    </Card.Body>
-                  </Card>
-                </div>
-              )}
-              {/* End Second Analysis graphs */}
-              {/* Show Third Analysis graphs */}
-              {showThirdAnalysis && (
-                <div className="mb-3">
-                  <Card
-                    bg="light"
-                    className="rounded border border-light mt-3 mb-3"
-                  >
-                    <Card.Title>
-                      <h4>Third Grade Analysis</h4>
-                      <hr className="border border-dark" />
-                    </Card.Title>
-                    <Card.Body className="mb-3">
-                      <ThirdAnalysisGraphs />
-                    </Card.Body>
-                  </Card>
-                </div>
-              )}
-              {/* End Second Analysis graphs */}
-            </div>
-          )}
+
         </div>
       </Page>
     </div>

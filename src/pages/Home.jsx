@@ -48,7 +48,6 @@ export const Home = () => {
                     amount of time needed to acquire meaningful research
                     material.
                   </p>
-                  <hr className="border border-dark" />
                 </Col>
               </Row>
             </Container>
@@ -67,19 +66,20 @@ export const Home = () => {
                 <Col>
                   <h4>Our Analytical Process</h4>
                   <p className="lead">
-                    <i>PySurveillance</i> provides an in depth analysis of
-                    results provided by the Scopus™ Database, you can either
-                    download the results from the Scopus™ website or perform a
-                    search query on the Scopus™ Database directly from{" "}
-                    <i>PySurveillance</i>. In order to learn more abouthow we
-                    provide you with the most relevant results, click the button
-                    beloiw
+                    <i>PySurveillance</i> provides an in-depth analysis of
+                    results provided by the Scopus™ Database and utilizes
+                    Machine Learning (Natural Language Processing) to filter the
+                    results so you can only include the research material that
+                    is relevant to your research. You can either download the
+                    results from the Scopus™ website or perform a search query
+                    on the Scopus™ Database directly from <i>PySurveillance</i>.
+                    In order to learn more about how we provide you with the
+                    most relevant results, click the button beloiw
                   </p>
                   <Button
                     className="mr-auto"
                     variant="outline-dark"
-                    href="https://scopus.com"
-                    target="blank"
+                    href="/analyticalprocess"
                   >
                     Learn About Our Analysis
                   </Button>
