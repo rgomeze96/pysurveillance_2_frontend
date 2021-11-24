@@ -1,5 +1,3 @@
-import { findAllByTestId } from "@testing-library/react";
-
 const initialState = {
   loading: false,
 };

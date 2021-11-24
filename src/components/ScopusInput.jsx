@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getFirstGrade } from "../actions/firstAnalysisActions";
-import { getSecondAnalysis } from "../actions/secondAnalysisActions";
-import { getThirdAnalysis } from "../actions/thirdAnalysisActions";
 import { getScopusJson } from "../actions/scopusSearchActions";
 
 export const ScopusInput = () => {

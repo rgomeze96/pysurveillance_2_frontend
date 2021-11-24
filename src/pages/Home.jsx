@@ -1,6 +1,6 @@
 import React from "react";
 import { Page } from "../components/Page";
-import { Button, Card, Col, Container, Jumbotron, Row } from "react-bootstrap";
+import { Button, Col, Container, Jumbotron, Row } from "react-bootstrap";
 
 export const Home = () => {
   return (
@@ -9,7 +9,7 @@ export const Home = () => {
         <div style={{ maxWidth: "1000px" }} className="mx-auto bg-light">
           <h2>Welcome to Pysurveillance</h2>
           <h4>Your Literature Review Partner</h4>
-          <hr className="border border-dark" />
+          <hr className="border-dark" />
           <Jumbotron className="bg-light">
             <Container>
               <Row>
@@ -22,7 +22,7 @@ export const Home = () => {
                   />
                 </Col>
                 <Col>
-                  <hr className="border border-dark" />
+                  <hr className="border-dark" />
                   <h4>Perform a Pysurveillance Analysis</h4>
                   <Button
                     className="mr-auto"
@@ -31,10 +31,10 @@ export const Home = () => {
                   >
                     Query Scopus™ Database
                   </Button>
-                  <Button className="ml-2" variant="dark" href="/CSV_Input">
+                  <Button className="ml-2" variant="dark" href="/CsvInput">
                     Import Scopus™ CSV File
                   </Button>
-                  <hr className="border border-dark" />
+                  <hr className="border-dark" />
                   <h4>What is PySurveillance?</h4>
                   <p className="lead">
                     Tired of spending countless hours going through pages and
@@ -51,7 +51,7 @@ export const Home = () => {
                 </Col>
               </Row>
             </Container>
-            <hr className="border border-dark" />
+            <hr className="border-dark" />
             <Container>
               <Row>
                 <Col lg={4} xs={12}>
@@ -86,7 +86,7 @@ export const Home = () => {
                 </Col>
               </Row>
             </Container>
-            <hr className="border border-dark" />
+            <hr className="border-dark" />
             <Container>
               <Row>
                 <Col lg={4} xs={12}>
@@ -115,10 +115,10 @@ export const Home = () => {
                 </Col>
               </Row>
             </Container>
-            <hr className="border border-dark" />
+            <hr className="border-dark" />
           </Jumbotron>
         </div>
-        <hr className="border border-dark" />
+        <hr className="border-dark" />
       </Page>
     </div>
   );

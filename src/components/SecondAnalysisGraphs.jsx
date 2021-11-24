@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Alert, Button, Card, Container, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import { Bar, Line } from "react-chartjs-2";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { saveAs } from "file-saver";
 
 export const SecondAnalysisGraphs = () => {
-  const dispatch = useDispatch();
-  const [fileUploaded, setFileUploaded] = useState(false);
   const secondState = useSelector((secondState) => secondState.secondAnalysis);
 
   /* Options to make the graph look better */
@@ -143,7 +141,7 @@ export const SecondAnalysisGraphs = () => {
                 options={optionsGraph1}
               />
             </Row>
-            <hr className="border border-dark" />
+            <hr className="border-dark" />
             <Row>
               {/* Second graph of second analysis see reducer and actions for more details */}
               <Line
@@ -152,7 +150,7 @@ export const SecondAnalysisGraphs = () => {
                 options={optionsGraph2}
               />
             </Row>
-            <hr className="border border-dark" />
+            <hr className="border-dark" />
             <Row>
               {/* Third graph of second analysis see reducer and actions for more details */}
               <Bar
@@ -162,11 +160,11 @@ export const SecondAnalysisGraphs = () => {
               />
             </Row>
           </Container>
-          <hr className="border border-dark" />
+          <hr className="border-dark" />
           <Button onClick={() => saveGraphs()} type="submit" variant="dark">
             Download Second Analysis Graphs
           </Button>
-          <hr className="border border-dark" />
+          <hr className="border-dark" />
         </div>
       </div>
     </div>

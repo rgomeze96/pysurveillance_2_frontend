@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Alert, Button, Card, Container, Row } from "react-bootstrap";
-import { Bar, Line } from "react-chartjs-2";
-import { useDispatch, useSelector } from "react-redux";
+import { Button, Container, Row } from "react-bootstrap";
+import { Bar } from "react-chartjs-2";
+import { useSelector } from "react-redux";
 import { saveAs } from "file-saver";
 
 export const ThirdAnalysisGraphs = () => {
-  const dispatch = useDispatch();
-  const [fileUploaded, setFileUploaded] = useState(false);
   const thirdState = useSelector((thirdState) => thirdState.thirdAnalysis);
 
   /* Options to make the graph look better */
@@ -74,11 +72,11 @@ export const ThirdAnalysisGraphs = () => {
               />
             </Row>
           </Container>
-          <hr className="border border-dark" />
+          <hr className="border-dark" />
           <Button onClick={() => saveGraph()} type="submit" variant="dark">
             Download Third Analysis Graphs
           </Button>
-          <hr className="border border-dark" />
+          <hr className="border-dark" />
         </div>
       </div>
     </div>

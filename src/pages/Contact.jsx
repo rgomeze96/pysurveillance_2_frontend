@@ -1,6 +1,6 @@
 import React from "react";
 import { Page } from "../components/Page";
-import { Button, Jumbotron } from "react-bootstrap";
+import { Jumbotron } from "react-bootstrap";
 
 export const Contact = () => {
   return (

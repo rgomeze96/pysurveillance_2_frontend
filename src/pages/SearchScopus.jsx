@@ -1,17 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { Alert, Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Page } from "../components/Page";
-import { UploadCSV } from "../components/UploadCSV";
 import { ScopusInput } from "../components/ScopusInput";
-import { FirstAnalysisGraphs } from "../components/FirstAnalysisGraphs";
-import { SecondAnalysisGraphs } from "../components/SecondAnalysisGraphs";
-import { ThirdAnalysisGraphs } from "../components/ThirdAnalysisGraphs";
 
 export const SearchScopus = () => {
-  const [showFirstAnalysis, setShowFirstAnalysis] = useState(true);
-  const [showSecondAnalysis, setShowSecondAnalysis] = useState(false);
-  const [showThirdAnalysis, setShowThirdAnalysis] = useState(false);
   const stateCSV = useSelector((stateCSV) => stateCSV.firstAnalysis);
 
   return (

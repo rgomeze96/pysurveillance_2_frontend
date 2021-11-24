@@ -1,5 +1,5 @@
 const initialState = {
-  loading: false,
+  firstAnalysisLoading: false,
   fileLoaded: false,
 };
 
@@ -9,19 +9,19 @@ const firstAnalysisReducer = (state = initialState, action) => {
     case "AWAITING_FIRST_ANAYLSIS":
       return {
         state,
-        loading: true,
+        firstAnalysisLoading: true,
         fileLoaded: false,
       };
     case "REJECTED_FIRST_ANALYSIS":
       return {
         ...state,
-        loading: false,
+        firstAnalysisLoading: false,
         fileLoaded: false,
       };
     case "SUCCESS_FIRST_ANALYSIS":
       return {
         ...state,
-        loading: false,
+        firstAnalysisLoading: false,
         fileLoaded: true,
         data: {
           // Author Names

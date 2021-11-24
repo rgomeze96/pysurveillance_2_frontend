@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React from "react";
 
-import { Navbar, NavDropdown, Nav } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Navbar, Nav } from "react-bootstrap";
 import "./css/Navibar.css";
 
 export const Navibar = () => {
